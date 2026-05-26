@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Bungee&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Memphis Cartoon Color Palette */
+  --color-dark-bg: #090a1a;
+  --color-dark-card: #12142d;
+  --color-dark-card-hover: #1b1e3f;
+  --color-dark-border: #1e224b;
+  
+  --color-neon-blue: #3b82f6;
+  --color-neon-cyan: #06b6d4;
+  --color-neon-purple: #a855f7;
+  --color-neon-pink: #ec4899;
+  --color-neon-orange: #f97316;
+  --color-neon-yellow: #facc15; /* Bright Cartoon Yellow */
+  --color-neon-green: #84cc16;  /* Acid Lime Green */
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-cartoon: 'Bungee', sans-serif; /* Thick Comic Font */
+
+  /* Cartoon Floating Animations */
+  --animate-blob-slow: blob 16s infinite alternate;
+  --animate-blob-medium: blob 12s infinite alternate-reverse;
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-float-medium: float 5s ease-in-out infinite;
+  --animate-wiggle-slow: wiggle 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(1.5deg); }
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg) translateY(0px); }
+    50% { transform: rotate(3deg) translateY(-8px); }
+  }
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1) rotate(0deg);
+      border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.15) rotate(120deg);
+      border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9) rotate(240deg);
+      border-radius: 28% 72% 37% 63% / 50% 50% 50% 50%;
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1) rotate(360deg);
+      border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #090a1a;
+    color: #f3f4f6;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  /* Funky Bold Cartoon Scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090a1a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #facc15;
+    border-radius: 6px;
+    border: 3px solid #090a1a;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f59e0b;
+  }
+
+  ::selection {
+    background: #facc15;
+    color: #090a1a;
+  }
+}
+
+@layer utilities {
+  /* Memphis / Neo-Brutalism Thick Card Utility */
+  .memphis-card {
+    background: #12142d;
+    border: 3px solid #090a1a;
+    box-shadow: 4px 4px 0px 0px #090a1a;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .memphis-card-hover:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0px 0px #090a1a;
+  }
+
+  /* Specular Highlight Color Shadows */
+  .shadow-flat-pink {
+    box-shadow: 6px 6px 0px 0px #ec4899;
+    border: 3px solid #ffffff;
+  }
+
+  .shadow-flat-yellow {
+    box-shadow: 6px 6px 0px 0px #facc15;
+    border: 3px solid #ffffff;
+  }
+
+  .shadow-flat-cyan {
+    box-shadow: 6px 6px 0px 0px #06b6d4;
+    border: 3px solid #ffffff;
+  }
+
+  .shadow-flat-orange {
+    box-shadow: 6px 6px 0px 0px #f97316;
+    border: 3px solid #ffffff;
+  }
+
+  .shadow-flat-green {
+    box-shadow: 6px 6px 0px 0px #84cc16;
+    border: 3px solid #ffffff;
+  }
+
+  .shadow-flat-purple {
+    box-shadow: 6px 6px 0px 0px #a855f7;
+    border: 3px solid #ffffff;
+  }
+
+  /* Funky Glow */
+  .glow-text-yellow {
+    text-shadow: 0 0 10px rgba(250, 204, 21, 0.4), 0 0 20px rgba(250, 204, 21, 0.2);
+  }
+
+  .custom-cursor-active {
+    cursor: none;
+  }
+  
+  .custom-cursor-active a,
+  .custom-cursor-active button,
+  .custom-cursor-active input,
+  .custom-cursor-active textarea,
+  .custom-cursor-active select,
+  .custom-cursor-active [role="button"] {
+    cursor: none;
+  }
+}
